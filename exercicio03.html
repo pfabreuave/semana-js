@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-br">
+	<head>
+		<title>Construção de objetos</title>
+		<meta chaset="utf-8"/>
+  		<link rel="stylesheet" href="estilosobj.css">
+	</head>
+	<body>
+		<div>
+		<p class="centrado">Ingrese novos parceros</p>
+		<form class="formulario">
+			<label>Nome:</label>
+            <input class="espaco quebra" id="nome" type="text" name="f_username">
+            <label>Sobrenome:</label>
+            <input class="espaco quebra" id="sobrenome" type="text" name="f_username">
+            <label>Edade:</label>
+            <input class="espaco quebra" id="edade" type="text" name="f_username">
+            <label>Pais Origen:</label>
+            <input class="espaco quebra" id="nacionalidade" type="text" name="f_username"
+              	   maxlength="15" size="20">  	   
+        	<div id="dv_btns">
+				<input type="button" value="Agregar" onclick="capturar();"/>
+				<input type="reset" name="f_btn_limpar" value="Limpar">
+				<input type="button" value="Sair" onclick="enviaycerrar();"/>
+			</div>
+		</form>
+		</div>
+		<script>		
+	/*Este programa é feito para fins acadêmicos, a intenção é explorar os diferentes objetivos abordados nas salas de aula; no caso, este programa é criar um objeto, através de uma tabela bidimensional, gerada a partir da captura de dados com o uso de formulários, capazes de armazenar um número indeterminado de registros e determinar qual das pessoas registradas é a maior. 
+	*/
+						
+					/* constructor de objeto */
+			var nomemaior = " "
+			var edademaior = 0;			
+			function capturar() {
+				function Persona(nome,sobrenome,edade,nacionalidade){
+						this.nome=nome;
+						this.sobrenome=sobrenome;
+						this.edade=edade;
+						this.nacionalidade=nacionalidade;
+				}
+				var nomeCapturar = document.getElementById('nome').value;
+				var sobrenomeCapturar = document.getElementById('sobrenome').value;
+				var edadeCapturar = document.getElementById('edade').value;
+				var nacionalidadeCapturar = document.getElementById('nacionalidade').value;
+			
+			novoItem = new Persona(nomeCapturar,sobrenomeCapturar,edadeCapturar,nacionalidadeCapturar);
+					
+			agregar() 
+			}
+			var baseDatos= [];
+
+			function agregar(){
+					baseDatos.push(novoItem);
+				 	if (novoItem.edade > edademaior) {
+				 		edademaior = Number(novoItem.edade);
+				 		nomemaior = novoItem.nome;
+				 	}
+			}
+			function enviaycerrar() {
+    				if (confirm('Você tem certeza que quer sair?')) {
+      					alert("Obrigado por participar");
+      					alert("el maior es "+nomemaior);
+      					window.close();
+    				}
+			}
+		</script>
+</html>
+	

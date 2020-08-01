@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="pt-br">
+	<head>
+		<title>captura de dados</title>
+		<meta chaset="utf-8"/>
+	</head>
+		<script>		
+	/*Este programa foi criado para colocar em prática alguns elementos javascript que aprendemos, usaremos tabelas, o comando FOR e o comando WHILE, criaremos uma função, a captura de dados será usada via prompt
+	É importante esclarecer que o esquema utilizado não é necessariamente apropriado para fins práticos, mas se for para fins acadêmicos, o importante é usar o maior número de elementos aprendidos no curso, independentemente de serem necessários ou não neste caso específico. */	
+
+			var textos = ['Nome', 'Sobrenome', 'Edade', 'Nacionalidade']
+			var captura = new Array(textos.length);
+			var cont=0;
+			function CapturaDatos() {
+				while(cont<textos.length)  {
+					captura [cont] = prompt(textos[cont]);	
+					cont++;
+				}
+			}
+			CapturaDatos();
+			var cont=0;
+			for(cont=0;cont<textos.length;cont++){ 
+ 		    	 document.write(textos[cont],  " = ",  captura[cont]); 
+				 document.write("<br>");
+			}	
+		</script>
+</html>
+	
